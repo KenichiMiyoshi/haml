@@ -1,0 +1,59 @@
+!!!
+/
+    複数行コメントアウト1
+    複数行コメントアウト1
+-# コメントアウト2（htmlには表示されない）
+/属性の書き方１{}
+%html{:lang => "ja"}
+    %head
+        /属性の書き方2()
+        %meta(charset="UTF-8")
+    %body
+        %p
+            hello world!
+        %p hello world!
+        %ul
+            %li
+                item
+        %ul
+            /liを一行に
+            %li<
+                item
+        /ul,liを一行に
+        %ul
+            %li<>
+                item
+        /４行とも<div class="myClass" id="main"></div>
+        %div{:id => "main", :class => "myClass"}
+        %div(id="main" class="myClass")
+        %div#main.myClass
+        #main.myClass
+        #main
+            .subMenu
+        /:cssフィルター
+        :css
+            .myStyle {
+                color:red;
+            }
+        /:javascriptフィルター
+        :javascript
+            alert(1);
+            if (1) {
+                alert(2);
+            }
+        /:escapedフィルター(自動文字実体参照)
+        %div
+            :escaped
+                <html>
+        /Rubyの式を評価
+        /表示は#{},=
+        %p total is #{5 * 3}
+        %p= Time.now
+        /代入などの命令実行は-（htmlには表示されない）
+        - x = 5
+        %p= x
+        - (1..10).each do |i|
+            %p= i
+            %p{:id => "item_#{i}"} #{i}
+        
+        
